@@ -30,7 +30,7 @@ int main(void)
     
         c = message[n] + rotationAmount ;
         
-         if(c > 32 && c < 59){
+         if(c > 32 && c < 61){
             c = c - rotationAmount;
         }
         if(c > 90){
