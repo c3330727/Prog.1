@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+//asfds
 char encryptionEquation(char c);
 
 int main(void)
