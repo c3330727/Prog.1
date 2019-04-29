@@ -13,17 +13,17 @@ int main(){
 	printf("For Rotational Cipher decryprion of message press 2\n");
 	printf("For Substitution Cipher encryption press 3\n");
     printf("For Substitution Cipher decryption press 4\n");
-	scanf("%d", &selection); 
+	scanf("%d", &selection); //stores the users input so it can be used
     getchar(); //sacrificial barrier so scanf doesn't effect the gets function below
 	
 	if(selection == 1){ //if statement used to allow user to select which encryption/decryption they want to use
 	printf("Enter a message to encrypt: ");
 	gets(message); //collects the user's input for the encrypted message
 	printf("Enter rotation amount between 1 - 26: ");
-	scanf("%d", &RotationAmount);
+	scanf("%d", &RotationAmount); //stores the users selected rotation amount so it can be implemented later
 	
 	if(RotationAmount > 26 || RotationAmount < 1){ //stops user from accidently breaking the program from a wrong input for rotation amount
-	    printf("Invalid rotaion amount!\n");
+	    printf("Invalid rotaion amount!\n"); //this is printed to let the user know that they have made a mistake
 	    return 0; //return 0; exits the program so the user has to go back through and make a valid choice
 	}
 	
@@ -68,7 +68,7 @@ if(selection == 2){
 			n = c - RotationAmount; //the rotation amount is negative to rotate back to orginal
 			
 		if(n < 65){
-			n = n + 26; //positive 26 as the cipher is rotated negativly
+			n = n + 26; //positive 26 as the cipher is rotated negativly and needs the plus 26 to rotate back to the ASCII equivilent
 	    }
 	    
 	    message[letter] = n;
@@ -82,14 +82,14 @@ printf("Decrypted message: %s\n", message);
   if(selection == 3){
 
     printf("Enter a message to encrypt: ");
-	gets(message);
-	printf("Decrypted message: "); //the print statement needs to be before the substition process
+	gets(message); //collects string, same as the rotational cipher
+	printf("Decrypted message: "); //the print statement needs to be before the substition process because letters are printed to the console each cycle through the switch statement
     
 	for(letter = 0; message[letter] != '\0'; ++letter){
 		
-		switch(message[letter]){ //switch statement allows each letter to substituted
+		switch(message[letter]){ //switch statement allows each letter to substituted once
     
-    case 'A':
+    case 'A': //if "A" is implimented into the switch statement then "S" will be printed
         printf("S"); //encrypted letter is printed each time the original letter is put through the for loop
         break; //break statement is used to stop each case from being executed
     case 'B':
